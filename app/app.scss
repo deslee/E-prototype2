@@ -1,0 +1,45 @@
+@import "sass/grid";
+@import "sass/media";
+
+
+$navbar-background: #eeeeee;
+$navbar-height: 64px;
+
+.mui-tooltip {
+  z-index: 99;
+}
+
+.navbar {
+  height: $navbar-height;
+  background: $navbar-background;
+
+  .navbar-container {
+    padding: 0 24px;
+
+    button.mui-flat-button {
+      background: $navbar-background;
+    }
+
+    .title {
+      line-height: $navbar-height;
+      font-size: 2em;
+      padding-left: 24px;
+      height:100%;
+      margin: 0;
+    }
+
+    > * {
+      display: inline-block;
+    }
+
+    .right-menu {
+      float: right;
+      height: 100%;
+      line-height: $navbar-height;
+
+      @include breakpoint($small $medium) {
+        display: none;
+      }
+    }
+  }
+}

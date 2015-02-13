@@ -1,0 +1,8 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {
+    "neat": "~1.7.1",
+    "compass-breakpoint": "~2.5.0"
+  }
+}

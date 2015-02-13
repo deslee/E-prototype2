@@ -1,0 +1,84 @@
+@import "_media";
+
+html, body {
+  height: 100%;
+}
+
+$panel-extend-width: 100%;
+
+.frame {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+.entry-list, .entry-display, .entry-edit {
+  text-align: center;
+  flex: 1 1;
+  &:nth-child(1) {
+    background-color: lightcoral;
+  }
+  &:nth-child(2) {
+    background-color: lightblue;
+  }
+  &:nth-child(3) {
+    background-color: sandybrown;
+  }
+  overflow-y: auto;
+}
+
+.entry-list {
+  z-index: 1;
+}
+
+.entry-edit {
+  visibility: visible;
+  z-index: 3;
+
+  @include breakpoint($small $xlarge) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translate3d(-100%, 0, 0);
+    transition: all 0.5s;
+
+    &.active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+
+  @include breakpoint($small $medium) {
+    width: 90%;
+  }
+}
+
+.entry-display {
+  visibility: visible;
+  z-index: 2;
+
+  @include breakpoint($small $medium) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 90%;
+    transform: translate3d(100%, 0, 0);
+    transition: all 0.5s;
+
+    &.active {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
